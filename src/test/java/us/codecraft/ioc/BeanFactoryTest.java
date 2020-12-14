@@ -1,6 +1,8 @@
 package us.codecraft.ioc;
 
 import org.junit.Test;
+import us.codecraft.ioc.factory.AutowireCapableBeanFactory;
+import us.codecraft.ioc.factory.BeanFactory;
 
 /**
  * @功能:
@@ -12,10 +14,11 @@ public class BeanFactoryTest {
     @Test
     public void test(){
         //1、初始化beanfactory
-        BeanFactory beanFactory  = new BeanFactory();
+        BeanFactory beanFactory  = new AutowireCapableBeanFactory();
 
         //2、注入bean
-        BeanDefinition beanDefinition = new BeanDefinition(new HelloWorldService());
+        BeanDefinition beanDefinition = new BeanDefinition();
+        beanDefinition.setBeanClassName("us.codecraft.ioc.HelloWorldService");
         beanFactory.registerBeanDefinition("helloWorldService",beanDefinition);
 
         //3、获取bean
