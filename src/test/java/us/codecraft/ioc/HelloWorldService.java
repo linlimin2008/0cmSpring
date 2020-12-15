@@ -7,7 +7,13 @@ package us.codecraft.ioc;
  * @日期:2020/12/1410:36 上午
  */
 public class HelloWorldService {
+    private String text;
+
     public void helloWorld(){
-        System.out.println("Hello World!");
+        System.out.println(text);
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 }
